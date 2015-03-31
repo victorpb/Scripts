@@ -7,18 +7,18 @@ from datetime import datetime
 
 class Red_z:
 
-	def __init__(self,toplevel):
-		self.frame1=Frame(toplevel)
+	def __init__(self,janela):
+		self.frame1=Frame(janela)
 		self.frame1.pack()
-		self.frame2=Frame(toplevel)
+		self.frame2=Frame(janela)
 		self.frame2.pack()
-		self.frame3=Frame(toplevel)
+		self.frame3=Frame(janela)
 		self.frame3.pack()
-		self.frame4=Frame(toplevel)
+		self.frame4=Frame(janela)
 		self.frame4.pack()
-		self.frame5=Frame(toplevel)
+		self.frame5=Frame(janela)
 		self.frame5.pack()
-		self.frame6=Frame(toplevel,pady=10)
+		self.frame6=Frame(janela,pady=10)
 		self.frame6.pack()
 
 		fonte1=('Verdana','10','bold')
@@ -54,16 +54,17 @@ class Red_z:
 		self.id_caixa.pack(side=LEFT)
 
 		self.confere=Button(self.frame6, font=fonte1, text='Executar',
-		bg='pink', command=self.execute_sql)
+		bg='gray', command=self.execute_sql)
 		self.confere.pack()
-		self.msg=Label(self.frame6,font=fonte1, height=3,text='Aperte em executar')
+		self.msg=Label(self.frame6,font=fonte1, height=3,text='Click em executar')
 		self.msg.pack()
 
+		janela.title('Altera Grande Total')
 	
 	def execute_sql(self):
 
 		nome_arquivo = str(	datetime.now())[0:10]
-		arq = open(nome_arquivo, 'a')
+		arq = open(nome_arquivo + '.log', 'a')
 		
 		try:
 			user_banco = self.usuario.get()
@@ -107,10 +108,6 @@ class Red_z:
 			arq.write(str(datetime.now())[0:19] + str(erro) + '\n')
 		 	self.msg['text']='Favo conferir os dados'
 		 	self.msg['fg']='darkred'
-
-
-
-
 
 
 instancia=Tk()
