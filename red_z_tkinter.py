@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 
-class Passwords:
+class Red_z:
 
 	def __init__(self,toplevel):
 		self.frame1=Frame(toplevel)
@@ -114,5 +114,5 @@ class Passwords:
 
 
 instancia=Tk()
-Passwords(instancia)
+Red_z(instancia)
 instancia.mainloop()
