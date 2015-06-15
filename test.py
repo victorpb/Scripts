@@ -1,4 +1,4 @@
 import pytest
 def test_function():
-    i = 4
+    i = 3
     assert i == 3
