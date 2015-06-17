@@ -23,8 +23,9 @@ else:
 	pomo_break= time(now.hour + 1, (now.minute + control_break) % 60  , now.second)
 
 
-def pomodoro(pomo, pomo_break) :
+def pomodoro(pomo, pomo_break, iterator = 0) :
 	start = raw_input("You want to start the break? Yes ou No")
+	
 	if start.lower() == "yes":
 		print "Pomodoro Iniciado termina as " + str(pomo)
 		while True:
@@ -36,12 +37,13 @@ def pomodoro(pomo, pomo_break) :
 				#fixme - print countdown				 
 				
 			else:
+				iterator +=1
 				os.system("gnome-screensaver-command -l")
-				pomodoro_break(pomo, pomo_break)
+				pomodoro_break(pomo, pomo_break, iterator)
 	else:
 		print "End pomodoro"
 
-def pomodoro_break(pomo, pomo_break):
+def pomodoro_break(pomo, pomo_break, iterator=0):
 	start = raw_input("You want to start the break? Yes ou No ")
 	if start.lower() == "yes":
 		print "Break started it ends the" + str(pomo_break)
@@ -55,7 +57,7 @@ def pomodoro_break(pomo, pomo_break):
 
 			else:
 				os.system("gnome-screensaver-command -l")
-				pomodoro(pomo, pomo_break)
+				pomodoro(pomo, pomo_break, iterator)
 	elif start.lower() == "no":
 		pomodoro(pomo, pomo_break)
 	else:
