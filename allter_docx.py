@@ -2,7 +2,6 @@
 #http://blog.smartbear.com/programming/five-free-javascript-libraries-to-add-text-editing-to-your-web-application/
 from docx import Document
 
-
 document = Document("a.docx")
 
 a = document.paragraphs
